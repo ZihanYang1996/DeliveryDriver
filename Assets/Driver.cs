@@ -31,12 +31,19 @@ public class Driver : MonoBehaviour
     {
         if (other.tag == "Slow")
         {
-            moveSpeed = slowSpeed;
+            StartCoroutine(SpeedChange(moveSpeed, slowSpeed, 3f));
         }
 
         if (other.tag == "Boost")
         {
-            moveSpeed = boostSpeed;
+            StartCoroutine(SpeedChange(moveSpeed, boostSpeed, 3f));
         }
+    }
+
+    IEnumerator SpeedChange(float defaultSpeed, float tempSpeed, float duration)
+    {
+        moveSpeed = tempSpeed;
+        yield return new WaitForSeconds(duration);
+        moveSpeed = defaultSpeed;
     }
 }
