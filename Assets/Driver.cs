@@ -21,8 +21,8 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
-        moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime; // Multiply by Time.deltaTime to make the movement frame rate independent
+        moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime; // Multiply by Time.deltaTime to make the movement frame rate independent
 
         transform.Translate(0, moveAmount, 0);
         if (moveAmount > 0)
